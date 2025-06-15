@@ -17,7 +17,12 @@ return new class extends Migration
             $table->string('statut');
             $table->timestamps();
             $table->datetime('date_sortie')->nullable();
+            $table->foreignIdFor(\App\Models\Engin::class)->nullable()->constrained()->nullOnDelete();
+            $table->foreignIdFor(\App\Models\Engin::class)->nullable()->constrained()->nullOnDelete();
+
         });
+
+        
     }
 
     /**

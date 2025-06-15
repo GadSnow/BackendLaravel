@@ -20,10 +20,6 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-
-        Schema::table('enregistrements', function (Blueprint $table) {
-            $table->foreignIdFor(\App\Models\Engin::class)->nullable()->constrained()->nullonDelete(); 
-        });
     }
 
     /**
@@ -32,8 +28,5 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('users');
-        Schema::table('enregistrements', function (Blueprint $table) {
-            $table->dropForeignIdFor(\App\Models\User::class);
-        });
     }
 };

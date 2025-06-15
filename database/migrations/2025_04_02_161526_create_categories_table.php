@@ -16,9 +16,6 @@ return new class extends Migration
             $table->string('nom', 30)->unique();
         });
 
-        Schema::table('conducteurs', function (Blueprint $table) {
-            $table->foreignIdFor(\App\Models\Categorie::class)->after('id')->nullable()->constrained()->nullOnDelete(); 
-        });
     }
 
     /**
@@ -27,8 +24,5 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('categories');
-        Schema::table('conducteurs', function (Blueprint $table) {
-            $table->dropForeignIdFor(\App\Models\Categorie::class);
-        });
     }
 };

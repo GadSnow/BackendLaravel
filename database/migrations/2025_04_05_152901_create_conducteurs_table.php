@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->string('tel',18)->unique();
+            $table->foreignIdFor(\App\Models\Categorie::class)->nullable()->constrained()->nullOnDelete();
+
         });
     
         Schema::table('enregistrements', function (Blueprint $table) {

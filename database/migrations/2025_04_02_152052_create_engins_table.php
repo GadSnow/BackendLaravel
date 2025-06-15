@@ -16,10 +16,6 @@ return new class extends Migration
             $table->string('plaque_immatricu', 101)->unique();
             $table->string('type_engin');
         });
-
-        Schema::table('enregistrements', function (Blueprint $table) {
-            $table->foreignIdFor(\App\Models\Engin::class)->after('conducteur_id')->nullable()->constrained()->nullonDelete(); 
-        });
     }
 
     /**
